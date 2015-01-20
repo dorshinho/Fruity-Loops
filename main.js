@@ -145,7 +145,13 @@ console.assert(
 //  */
 
 // // .sort()
-
+var array = ['People', 'love', 'drinking', 'alcohol']
+array.sort(function(a, b){
+        // if(a.length < b.length)
+        return a.length - b.length;
+        // return a > b;
+});
+console.assert(array[3] === 'drinking')
 // // .concat()
 
 // // .indexOf()
