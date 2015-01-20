@@ -12,44 +12,46 @@
 
 // 0. write your own forEach() that takes two arguments: an array, and a callback
 
-function forEach(array, callback){
+function forEach(array, callback) {
     "use strict";
-for (var i = 0; i< array.length; i++) {
-    //do something x amount times]
-    callback(array[i])
+    for (var i = 0; i < array.length; i++) {
+        //do something x amount times]
+        callback(array[i])
     }
 
 }
 
 var arrayOfNumbers = [1, 2, 3, 4]
 var total = 1;
-forEach(arrayOfNumbers, function(a){ total *= a; });
+forEach(arrayOfNumbers, function(a) {
+    total *= a;
+});
 // and finally assert; if this fails, the program stops
 console.assert(total === 24);
 
 
 //1. calculate the sum of numbers (returns the sum (A NUMBER))
 
-function sum(){
+function sum() {
     // parse arguments into an array
     var args = [].slice.call(arguments);
     var total = 0;
-    args.forEach(function(number){
+    args.forEach(function(number) {
         total += number;
     });
     return total;
 }
 
-console.assert(sum(1, 2, 3, 4, 5) === 15 );
+console.assert(sum(1, 2, 3, 4, 5) === 15);
 
 // // 2. calculate the average of numbers (returns the average (A NUMBER))
 
-function average(){
+function average() {
     // parse arguments into an array
     var args = [].slice.call(arguments);
     // add the numbers inside the array
-        var total = 0;
-    args.forEach(function(number){
+    var total = 0;
+    args.forEach(function(number) {
         total += number;
     });
     total /= args.length
@@ -57,18 +59,18 @@ function average(){
 
 }
 
-console.assert( average(2, 4, 6, 8) === 5 )
+console.assert(average(2, 4, 6, 8) === 5)
 
 // // 3. find the largest number of the inputs (returns the largest input (A NUMBER))
 
-function largest(){
+function largest() {
     // parse arguments into an array
     var args = [].slice.call(arguments);
 
     // .. do something with each element of args
-   var largestNumber = 0;
-    args.forEach(function(number){
-        if(largestNumber < number){
+    var largestNumber = 0;
+    args.forEach(function(number) {
+        if (largestNumber < number) {
             largestNumber = number;
         }
 
@@ -77,38 +79,41 @@ function largest(){
     return largestNumber;
 }
 
-console.assert( largest(2, 4, 6, 8) === 8 )
+console.assert(largest(2, 4, 6, 8) === 8)
 
 // // 4. find the longest string of the inputs (returns the longest input (A STRING))
 
-function longest(){
+function longest() {
     // parse arguments into an array
     var args = [].slice.call(arguments);
 
     // .. do something with each element of args
     var longestWord = '';
-    args.forEach(function(word){
-        if(word.length > longestWord.length){
+    args.forEach(function(word) {
+        if (word.length > longestWord.length) {
             longestWord = word;
-}
+        }
 
-});
+    });
 
     return longestWord.length;
 }
 
-console.assert( longest('I', 'love', 'soccer', 'sunday') === 6 )
+console.assert(longest('I', 'love', 'soccer', 'sunday') === 6)
 
 // 5. write a function that can sort an array of Date objects (returns a NEW ARRAY of Date's)
 
-function sort(){
+function sort() {
     // parse arguments into an array
     var args = [].slice.call(arguments);
-// .. do something with each element of args
- args.forEach(function(date){
+    // .. do something with each element of args
+    args.sort(function(a, b) {
+        return a - b;
+        // return a > b;
 
- }
+    });
 
+    return args
 }
 
 var dates = [
@@ -126,8 +131,9 @@ console.assert(
     sorted[1] === dates[2] &&
     sorted[2] === dates[4] &&
     sorted[3] === dates[1] &&
-    sorted[4] === dates[0] &&
+    sorted[4] === dates[0]
 )
+
 
 // /**
 //  * PART II
