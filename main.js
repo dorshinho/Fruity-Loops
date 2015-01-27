@@ -153,7 +153,8 @@ array.sort(function(a, b){
 });
 console.assert(array[3] === 'drinking')
 // // .concat()
-
+var numbers = [1,2,3]
+console.assert(numbers.concat)
 // // .indexOf()
 
 // // .split()
@@ -190,38 +191,35 @@ console.assert(array[3] === 'drinking')
 //  */
 
 
-// // set up arrays
-// var numbers = [1, 12, 4, 18, 9, 7, 11, 3, 101, 5, 6];
-// var strings = ['this', 'is', 'a', 'collection', 'of', 'words'];
+// set up arrays
+var customers = [{
+    firstname: 'Joe',
+    lastname: 'Blogs'
+}, {
+    firstname: 'John',
+    lastname: 'Smith'
+}, {
+    firstname: 'Dave',
+    lastname: 'Jones'
+}, {
+    firstname: 'Jack',
+    lastname: 'White'
+}];
 
-// var customers = [{
-//     firstname: 'Joe',
-//     lastname: 'Blogs'
-// }, {
-//     firstname: 'John',
-//     lastname: 'Smith'
-// }, {
-//     firstname: 'Dave',
-//     lastname: 'Jones'
-// }, {
-//     firstname: 'Jack',
-//     lastname: 'White'
-// }];
+var projections = customers.filter(function(c) {
+        // find all customers whose names start with 'J'
+        return c.firstname[0].toLowerCase() === 'j';
+    })
 
-// console.log(customers);
+projections = projections.map(function(c) {
+        // turn each object into { name: firstname + lastname }
+        return {
+            name: [c.firstname, c.lastname].join(" ")
+        };
+    })
 
-// var projections = customers
-// .filter(function(c) {
-//     // YOUR CODE HERE
-// })
-// .map(function(c) {
-//     // YOUR CODE HERE
-// })
-// .sort(sortByName);
+projections.sort(function(v1, v2){
+    return v1.name > v2.name ? 1 : -1;
+});
 
-// function sortByName(c1, c2) {
-//     "use strict";
-//     //...
-// }
-
-// console.log(projections);
+console.assert(projections);
